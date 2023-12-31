@@ -1,0 +1,108 @@
+[data-disabled] {
+    cursor: default;
+    color: #aaaaaa;
+}
+
+.select-list__item, .selectable-item {
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.select-list__item:hover,
+.select-list__item.active,
+.selectable-item:hover,
+.selectable-item.active {
+    background-color: rgba(100, 104, 107, 0.44);
+}
+
+.selectable-item.selected {
+    background-color: rgba(63, 95, 121, 0.44);
+}
+
+
+/* Стили для вкладок */
+.tabs-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+}
+
+.tabs-header {
+    display: flex;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #cccccc;
+}
+
+.tabs-header .select-list__item {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-right: 1px solid #ccc;
+    transition: background-color 0.3s ease;
+}
+
+.tabs-header .select-list__item:last-child {
+    border-right: none;
+}
+
+.tabs-header .select-list__item.active {
+    background-color: #cdcdcd;
+}
+
+.tabs-header .select-list__item:hover {
+    background-color: #ddd;
+}
+
+.page-stack {
+    min-height: 150px;
+    border: 1px solid #333333;
+}
+
+.page-stack .page {
+    display: none;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.page-stack .page.active {
+    display: block;
+}
+
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+    width: min-content;
+}
+
+.dropdown-button {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.dropdown-list {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    width: auto;
+    margin: 4px 0 -4px;
+}
+
+.dropdown-container.opened .dropdown-list {
+    display: block;
+}
+
+.dropdown-option {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-option:hover {
+    background-color: #f0f0f0;
+}

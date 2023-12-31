@@ -1,0 +1,94 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "MangaTools",
+    "version": "2.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "window": {
+        "all": false,
+        "close": true,
+        "hide": true,
+        "show": true,
+        "maximize": true,
+        "minimize": true,
+        "unmaximize": true,
+        "unminimize": true,
+        "startDragging": true,
+        "center": true
+      },
+      "shell": {
+        "all": false,
+        "open": true
+      },
+      "fs": {
+        "all": true,
+        "scope": ["**"]
+      },
+      "path": {
+        "all": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "pro.ruden.mangatools",
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "resources": [
+        "data/*"
+      ]
+    },
+    "security": {
+      "csp": null
+    },
+    "windows": [
+      {
+        "label": "splashscreen",
+        "fullscreen": false,
+        "resizable": false,
+        "title": "MangaTools is loading...",
+        "width": 400,
+        "height": 400,
+        "decorations": false,
+        "url": "../ui/windows/splashscreen.html"
+      },
+      {
+        "label": "welcome",
+        "fullscreen": false,
+        "resizable": false,
+        "title": "Welcome to MangaTools",
+        "width": 520,
+        "height": 600,
+        "decorations": false,
+        "url": "../ui/windows/welcome.html",
+        "visible": false
+      },
+      {
+        "label": "main",
+        "fullscreen": false,
+        "resizable": true,
+        "title": "MangaTools",
+        "width": 800,
+        "height": 600,
+        "maximized": true,
+        "decorations": false,
+        "url": "../ui/windows/main.html",
+        "visible": false
+      }
+    ]
+  }
+}

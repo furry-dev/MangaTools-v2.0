@@ -1,0 +1,34 @@
+@use "../base/reset"
+@use "../abstract/variables"
+@use "../layouts/footer"
+
+@keyframes pulse
+  from
+    scale: 1
+  to
+    scale: 1.05
+
+
+main
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  row-gap: 5px
+
+  background: none
+
+  .logo
+    height: 45vh
+    width: auto
+
+    margin-bottom: 20px
+
+    animation: 1.2s ease-in 0s infinite alternate pulse
+
+  h1
+    font-size: 26px
+
+footer
+  padding: 0.3rem 0.5rem
+  background: none

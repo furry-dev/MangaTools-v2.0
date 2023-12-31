@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://cdn.ruden.pro/libraries/fontawesome/css/all.min.css">
+
+    <link rel="stylesheet" href="/ui/dist/css/main.min.css">
+
+    <title>MangaTools online</title>
+</head>
+<body>
+<header data-tauri-drag-region>
+    <div class="tabs">
+        <div class="tab" data-name="main">Главная</div>
+        <div class="tab active" data-name="sounds">Звуки</div>
+        <div class="tab" data-name="type">Тайп</div>
+    </div>
+    <div class="buttons">
+        <i class="button fa-regular fa-circle-question"></i>
+        <i class="button team-settings fa-solid fa-people-group" onclick="openModal('modal-teams')"></i>
+        <i class="button fa-solid fa-gear"></i>
+        <div class="window-actions">
+            <i id="minimize-window" class="button fa-solid fa-window-minimize"></i>
+            <i id="close-window" class="button fa-regular fa-circle-xmark"></i>
+        </div>
+    </div>
+
+    <script src="/ui/scripts/layouts/header.ts" type="module"></script>
+</header>
+<main>
+    <div class="pages">
+        <div class="page main-page" id="main-page" data-name="main-content">
+            <div class="action">
+                <div class="project-list columns"></div>
+                <div class="project-options columns">
+                    <div class="project-option">
+                        <img src="/ui/assets/icons/create-project.png" alt="icon" class="icon">
+                        <div class="project__option-name">
+                            <h3>Создание проекта</h3>
+                            <p>Открыть мастер создания проекта</p>
+                        </div>
+                    </div>
+                    <div class="project-option">
+                        <img src="/ui/assets/icons/open-project.png" alt="icon" class="icon">
+                        <div class="project__option-name">
+                            <h3>Открыть проект</h3>
+                            <p>Открыть локальный проект MangaTools</p>
+                        </div>
+                    </div>
+                    <div class="project-option">
+                        <img src="/ui/assets/icons/get-project.png" alt="icon" class="icon">
+                        <div class="project__option-name">
+                            <h3>Экспорт проекта</h3>
+                            <p>Получить файл локального проекта</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page sound-page active" id="sound-page" data-name="sounds-content">
+            <div class="header">
+                <div class="search">
+                    <h1>SoundSearch</h1>
+                    <form action="" method="get">
+                        <input type="text" placeholder="Введите звук:" aria-label="Input sound:">
+                        <button type="submit">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M25.7751 24.6741L19.4553 18.3557C21.1506 16.4071 22.177 13.8647 22.177 11.086C22.177 4.9694 17.2007 0 11.0885 0C4.9705 0 0 4.97517 0 11.086C0 17.1969 4.97627 22.1721 11.0885 22.1721C13.8678 22.1721 16.4107 21.1459 18.3597 19.451L24.6795 25.7694C24.8295 25.9193 25.0313 26 25.2273 26C25.4234 26 25.6252 25.9251 25.7751 25.7694C26.075 25.4696 26.075 24.9738 25.7751 24.6741ZM1.55112 11.086C1.55112 5.82838 5.82967 1.55654 11.0827 1.55654C16.3415 1.55654 20.6143 5.83415 20.6143 11.086C20.6143 16.3379 16.3415 20.6213 11.0827 20.6213C5.82967 20.6213 1.55112 16.3437 1.55112 11.086Z" fill="#BDBDBD" fill-opacity="0.8"></path>
+                            </svg>
+                        </button>
+                    </form>
+                    <small class="powered-by">Powered by <a class="link" href="https://docs.google.com/spreadsheets/d/1-MvKAxWtmLNLb750gApJRtNwbtItF1PbEU395LuzifY/edit">Imagawa_NC</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!--<div class="modal-window teams" id="modal-teams">-->
+<!--    <div class="modal-window__header">-->
+<!--        <img class="logo" src="/ui/assets/icons/icon.png" alt="" width="16px">-->
+<!--        <div class="modal-window__title">Команды</div>-->
+<!--        <div class="buttons">-->
+
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="modal-window__content">-->
+<!--        <div class="columns">-->
+<!--            <div class="column team-column">-->
+<!--                <div class="column-header">-->
+<!--                    <i class="fa-regular fa-square-plus"></i>-->
+<!--                </div>-->
+<!--                <div class="team-list">-->
+<!--                    <div class="select-list__item">Ruden</div>-->
+<!--                    <div class="select-list__item">team1</div>-->
+<!--                    <div class="select-list__item">team2</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="column">-->
+<!--                <div class="column-header">-->
+<!--                    <i class="fa-solid fa-user-plus"></i>-->
+<!--                </div>-->
+<!--                <div class="user-list select-list">-->
+<!--                    <div class="select-list__item">Ruden</div>-->
+<!--                    <div class="select-list__item">Luci_deni</div>-->
+<!--                    <div class="select-list__item">._nun_non.</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="modal-window__footer">-->
+<!--        <a href="" class="support fa-regular fa-circle-question"></a>-->
+<!--        <div class="buttons">-->
+<!--            <button class="ok">Ok</button>-->
+<!--            <button onclick="closeModal()">Cancel</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<script type="module">
+    import WindowTabs from "../libraries/ForgeCraft-UI/components/WindowTabs.js"
+
+    new WindowTabs(document.querySelector('header .tabs'), document.querySelector('main .pages'))
+</script>
+<script>
+    const soundSearch = document.querySelector('#sound-page .header .search')
+    const soundInput = soundSearch.querySelector('form input')
+
+    soundSearch.addEventListener('click', (e) => e.stopPropagation())
+
+    const disableSearch = (e) => {
+        e.preventDefault()
+        soundSearch.classList.remove('active')
+    }
+
+    soundSearch.querySelector('form').addEventListener('submit', (e) => {
+        disableSearch(e)
+    })
+
+    soundSearch.addEventListener('keydown', (e) => {
+        if (e.keyCode === 27) {
+            disableSearch(e)
+        }
+    })
+
+    soundInput.addEventListener('click', (e) => {
+        console.log(e)
+        soundSearch.classList.add('active')
+    })
+
+</script>
+</body>
+</html>

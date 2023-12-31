@@ -1,0 +1,40 @@
+@use "../base/reset"
+@use "../abstract/variables"
+@use "../layouts/header"
+@use "../layouts/footer"
+@use "../components/window-buttons"
+
+body
+  background-color: variables.$footer-bgc
+
+header
+  padding: 5px
+
+  background: none
+
+main
+  padding: 15px
+  background-color: #313335
+
+  h1
+    font-size: 32px
+    text-align: center
+
+    margin: 0 0 20px
+
+  p
+    margin: 10px 0
+
+    text-align: center
+
+  ul
+    margin-left: 5px
+    margin-top: 10px
+
+    li
+      font-weight: 500
+
+footer
+  padding: 10px
+
+  justify-content: flex-end

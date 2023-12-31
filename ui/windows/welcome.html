@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MangaTools is loading...</title>
+
+    <link rel="stylesheet" href="/ui/dist/css/welcome.min.css">
+</head>
+<body>
+<header data-tauri-drag-region>
+    <img class="logo" src="/ui/assets/icons/icon.png" alt="" width="16px">
+    <a data-tauri-drag-region>Добро пожаловать!</a>
+    <div class="buttons"></div>
+</header>
+<main>
+    <h1>
+        Приветствую в<br>
+        MangaTools v<a class="appVersion"></a>!
+    </h1>
+    <p class="appTitle"></p>
+    <p class="appDesc"></p>
+    <b>
+        Среди нововведений:
+    </b>
+    <ul class="appNew">
+    </ul>
+    <p class="appNote"></p>
+</main>
+<footer>
+    <div class="window-buttons">
+        <button class="ok" type="submit">Ok</button>
+    </div>
+</footer>
+<script src="/ui/scripts/windows/welcome.ts" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+@use "../base/reset"
+@use "../abstract/variables"
+@use "../layouts/header"
+
+main
+  min-height: calc(100vh - 25px) /* 100vh - header height */
+  background: #333333
+
+  display: flex
+  flex-direction: column
+
+  .pages
+    flex: 1 1 auto
+
+    background: #fd789c
+
+    display: flex
+    flex-direction: column
+
+    .page
+      flex: 1 1 auto
+      display: none
+      visibility: hidden
+
+      background: url("/ui/assets/images/background.jpg") center center/cover no-repeat
+
+      flex-direction: column
+
+      position: relative
+
+      &.active
+        display: flex
+        visibility: visible
+
+      &#main-page
+        background: url("/ui/assets/images/background.jpg") center center/cover no-repeat
+
+        .action
+          flex: 1 1 auto
+          height: 100%
+          width: 100%
+
+          display: flex
+          align-items: center
+          justify-content: space-between
+
+          .columns
+            height: calc(100% - 60px)
+            margin: 30px
+
+            border: 3px solid black
+
+            &.project-list
+              flex: 1 1 auto
+
+            &.project-options
+              .project-option
+                display: flex
+                align-items: center
+                padding: 10px
+                color: white
+                cursor: pointer
+
+                &:hover
+                  background-color: rgba(150, 150, 150, 0.4)
+
+                .icon
+                  margin-right: 10px
+                  width: 40px
+                  height: auto
+
+      &#sound-page
+        .header
+          .search
+            width: 200px
+            max-width: 655px
+
+            display: flex
+            flex-direction: column
+            align-items: center
+            row-gap: 10px
+
+            position: absolute
+            top: 0
+            left: 10px
+            transform: translate(0, 0)
+
+            transition: width 2s ease, top 1s ease, left 1s ease, transform 1s ease
+
+            &.active
+              position: absolute
+              top: 50%
+              left: 50%
+              transform: translate(-50%, -50%)
+
+              width: 90%
+
+              h1
+                opacity: 1
+                visibility: visible
+                height: auto
+
+              small.powered-by
+                opacity: 1
+                visibility: visible
+                height: auto
+
+              form
+                input
+                  height: 50px
+                  padding: 10px 20px
+
+                button[type="submit"]
+                  opacity: 1
+                  visibility: visible
+                  height: auto
+
+            h1
+              opacity: 0
+              visibility: hidden
+              height: 0
+              transition: opacity 1s ease, height 0s
+
+            small.powered-by
+              opacity: 0
+              visibility: hidden
+              height: 0
+              transition: opacity 1s ease, height 0s
+
+            form
+              position: relative
+              width: 100%
+
+              input
+                height: 30px
+                width: 100%
+
+                padding: 2px 6px
+
+                background-color: white
+                color: initial
+
+                border: none
+                border-radius: 80px
+                outline: none
+
+                font-size: 20px
+
+                transition: height 1s ease, padding-left 1s ease
+
+                &::placeholder
+                  color: rgba(189, 189, 189, 0.80)
+
+
+              button[type="submit"]
+                position: absolute
+                top: 12px
+                right: 18px
+
+                border: none
+                outline: none
+
+                background: none
+
+                cursor: pointer
+
+                opacity: 0
+                visibility: hidden
+                height: 0
+                transition: opacity 1s ease, height 0s
+
+.modal-window
+  .team-column
+    max-width: 30%
+    border-right: 1px solid #515151
+
+
+  .team-list, .user-list
+    background-color: #313335
+    height: 100%
