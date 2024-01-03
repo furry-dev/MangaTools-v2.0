@@ -8,9 +8,9 @@
 
     <link rel="stylesheet" href="https://cdn.ruden.pro/libraries/fontawesome/css/all.min.css">
 
-    <link rel="stylesheet" href="/ui/dist/css/main.min.css">
+    <link rel="stylesheet" href="/ui/styles/windows/main.sass">
 
-    <title>MangaTools online</title>
+    <title>MangaTools v2.0</title>
 </head>
 <body>
 <header data-tauri-drag-region>
@@ -19,16 +19,28 @@
         <div class="tab active" data-name="sounds">Звуки</div>
         <div class="tab" data-name="type">Тайп</div>
     </div>
+    <a class="window-name" data-tauri-drag-region>Название проекта</a>
     <div class="buttons">
-        <i class="button fa-regular fa-circle-question"></i>
-        <i class="button team-settings fa-solid fa-people-group" onclick="openModal('modal-teams')"></i>
-        <i class="button fa-solid fa-gear"></i>
+        <i class="button show-more-windows fa-solid fa-ellipsis-vertical" id="show-more-windows"></i>
+        <div class="more-windows" id="more-windows">
+            <div class="button">
+                <a class="name">Справка</a>
+                <i class="button fa-regular fa-circle-question"></i>
+            </div>
+            <div class="button">
+                <a class="name">Команды</a>
+                <i class="button team-settings fa-solid fa-people-group"></i>
+            </div>
+            <div class="button">
+                <a class="name">Настройки</a>
+                <i class="button fa-solid fa-gear"></i>
+            </div>
+        </div>
         <div class="window-actions">
             <i id="minimize-window" class="button fa-solid fa-window-minimize"></i>
-            <i id="close-window" class="button fa-regular fa-circle-xmark"></i>
+            <i id="exit-app" class="button fa-regular fa-circle-xmark"></i>
         </div>
     </div>
-
     <script src="/ui/scripts/layouts/header.ts" type="module"></script>
 </header>
 <main>
@@ -75,6 +87,32 @@
                     </form>
                     <small class="powered-by">Powered by <a class="link" href="https://docs.google.com/spreadsheets/d/1-MvKAxWtmLNLb750gApJRtNwbtItF1PbEU395LuzifY/edit">Imagawa_NC</a></small>
                 </div>
+                <div class="options">
+                    <select aria-label="Translate to...">
+                        <option value="1">日本語</option>
+                        <option value="2">English</option>
+                        <option value="3" selected>Русский</option>
+                    </select>
+                </div>
+            </div>
+            <div class="results">
+                <ol class="result-list">
+                    <li class="result">
+                        <div class="head">
+                            <h3 class="name">あ</h3>
+                            <div class="options">
+                                <!--data-checked-->
+                                <a class="button favorite"><i class="fa-regular fa-star"></i></a>
+                            </div>
+                        </div>
+                        <ul class="trans-list">
+                            <li class="trans">А</li>
+                            <li class="trans">Ах</li>
+                            <li class="trans">Ох</li>
+                            <li class="trans">Ух</li>
+                        </ul>
+                    </li>
+                </ol>
             </div>
         </div>
     </div>

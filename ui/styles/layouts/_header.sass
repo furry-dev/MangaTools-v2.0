@@ -2,16 +2,19 @@
 
 header
   padding: 2px 2px 0
-  height: 25px
+  height: variables.$window-header-height
 
   display: flex
   align-items: center
   justify-content: space-between
+  column-gap: 10px
 
   background-color: variables.$header-bgc
   color: #ced0d6
 
-  border-radius: 5px 5px 0 0
+  border-radius: 10px 10px 0 0
+
+  z-index: 9999
 
   .tabs
     width: 100%
@@ -38,6 +41,9 @@ header
         background-color: rgba(100, 104, 107, 0.44)
         border-radius: 10px 10px 0 0
 
+  .window-name
+    white-space: nowrap
+
   .buttons
     padding-right: 3px
     font-size: 15px
@@ -45,6 +51,8 @@ header
     display: flex
     align-items: center
     column-gap: 10px
+
+    position: relative
 
     .button
       color: white
@@ -54,9 +62,87 @@ header
       &.fa-window-minimize
         transform: translateY(-6px) scaleX(0.9)
 
+    .show-more-windows
+      width: 15px
+      text-align: center
+
+    .more-windows
+      display: flex
+      column-gap: 10px
+
     .window-actions
       margin-left: 15px
+      white-space: nowrap
 
       .button
         //color: #8c8c8c
         color: #ced0d6
+
+@media (max-width: 450px)
+  header
+    .tabs
+      position: fixed
+      top: 0
+      right: 0
+      bottom: 0
+      height: variables.$window-header-height
+
+@media (max-width: 560px)
+  header
+
+    .show-more-windows
+      display: block
+
+    .more-windows
+      position: absolute
+      top: 100%
+      right: 50px
+
+      flex-direction: column
+      align-items: flex-start
+
+      background-color: variables.$header-bgc
+
+      opacity: 0
+      visibility: hidden
+      transform: translateY(5%)
+
+      transition: opacity 0.3s ease, transform 0.3s ease
+
+      &.active
+        opacity: 1
+        visibility: visible
+        transform: translateY(0%)
+
+      .button
+        display: flex
+        align-items: center
+        column-gap: 3px
+
+        width: 100%
+
+        padding: 0.3rem 0.5rem
+
+        .name
+          display: inline-block
+
+    .window-actions
+      margin-left: 0 !important
+
+@media (min-width: 561px)
+  header
+    .show-more-windows
+      display: none
+
+    .more-windows
+      align-items: center
+
+      .button
+        &:hover
+          color: red
+
+        .name
+          display: none
+
+    .window-actions
+      margin-left: 0 !important

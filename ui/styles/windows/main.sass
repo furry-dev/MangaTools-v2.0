@@ -2,17 +2,28 @@
 @use "../abstract/variables"
 @use "../layouts/header"
 
+@keyframes big2small2big
+  0%
+    scale: 1
+  50%
+    scale: 0
+  100%
+    scale: 1
+
+body
+  min-width: 400px
+  min-height: 455px
+
 main
-  min-height: calc(100vh - 25px) /* 100vh - header height */
-  background: #333333
+  min-height: calc(100vh - #{variables.$window-header-height})
+
+  background: url("/ui/assets/images/background.jpg") center center/cover no-repeat
 
   display: flex
   flex-direction: column
 
   .pages
     flex: 1 1 auto
-
-    background: #fd789c
 
     display: flex
     flex-direction: column
@@ -21,8 +32,6 @@ main
       flex: 1 1 auto
       display: none
       visibility: hidden
-
-      background: url("/ui/assets/images/background.jpg") center center/cover no-repeat
 
       flex-direction: column
 
@@ -33,7 +42,6 @@ main
         visibility: visible
 
       &#main-page
-        background: url("/ui/assets/images/background.jpg") center center/cover no-repeat
 
         .action
           flex: 1 1 auto
@@ -71,6 +79,14 @@ main
 
       &#sound-page
         .header
+          display: flex
+          align-items: center
+          justify-content: flex-end
+
+          padding: 20px 15px
+
+          height: variables.$sounds-header-height
+
           .search
             width: 200px
             max-width: 655px
@@ -81,21 +97,22 @@ main
             row-gap: 10px
 
             position: absolute
-            top: 0
-            left: 10px
-            transform: translate(0, 0)
+            top: 35px
+            left: 110px
+            z-index: 999
 
-            transition: width 2s ease, top 1s ease, left 1s ease, transform 1s ease
+            transform: translate(-50%, -50%)
+
+            transition: width 1s ease, top 1s ease, left 1s ease
 
             &.active
-              position: absolute
               top: 50%
               left: 50%
-              transform: translate(-50%, -50%)
 
               width: 90%
 
               h1
+                font-family: 'DejaVu Sans', sans-serif
                 opacity: 1
                 visibility: visible
                 height: auto
@@ -168,6 +185,103 @@ main
                 visibility: hidden
                 height: 0
                 transition: opacity 1s ease, height 0s
+          .options
+            select
+              height: 30px
+              padding: 0 5px
+
+        .results
+          flex: 1 1 auto
+          max-height: calc(100vh - #{variables.$window-header-height} - #{variables.$sounds-header-height})
+          overflow-y: scroll
+
+          .result-list
+            background-color: rgba(100, 100, 100, 0.5)
+
+            .result
+              padding: 10px 10px 10px 0
+
+              .head
+                display: flex
+                align-items: center
+                justify-content: space-between
+
+                .name
+                  max-width: fit-content
+
+                  position: relative
+
+                  color: rgb(47, 162, 255)
+
+                  cursor: pointer
+
+                  &::before
+                    content: ""
+
+                    position: absolute
+                    top: calc( 100% - 2px )
+                    left: 0
+                    right: 0
+
+                    height: 2px
+
+                    transform: scaleX(0)
+
+                    transition: transform 0.3s ease
+
+                    background-color: rgb(47, 162, 255)
+
+                  &:hover::before
+
+                    transform: scaleX(1)
+
+                .options
+                  display: flex
+                  column-gap: 10px
+
+                  .button
+                    cursor: pointer
+                    width: 20px
+                    height: 20px
+
+                    &.favorite
+                      &[data-checked]
+                        i
+                          font-weight: 900
+                          color: yellow
+
+                      &:hover
+                        i
+                          font-weight: 900
+                          color: yellow
+
+                          transition: color 0.3s ease, font-weight 0s
+                          transition-delay: 0.3s
+
+                          animation: 0.6s ease big2small2big
+
+              .trans-list
+                list-style: none
+
+                margin-top: 5px
+                padding-left: 0
+
+                display: flex
+                align-items: center
+                column-gap: 10px
+
+                .trans
+                  padding: 0.2rem 0.5rem
+                  border: 1px solid white
+                  border-radius: 5px
+
+                  cursor: pointer
+
+                  transition: background-color 0.3s ease-out
+
+                  &:hover
+                    background-color: white
+                    color: darkblue
 
 .modal-window
   .team-column

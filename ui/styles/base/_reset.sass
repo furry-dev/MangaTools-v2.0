@@ -1,4 +1,5 @@
 @use "../abstract/variables"
+@use "./typography"
 
 *
   margin: 0
@@ -12,23 +13,28 @@ a
   &.link
     color: variables.$link-color
 
-ul
-  padding-left: 20px
+ul, ol
+  padding-left: 30px
 
 .img
   img
     width: 100%
 
 body
+  font-family: 'Comfortaa', sans-serif
+
   min-height: 100vh
+  max-height: 100vh
   display: flex
   flex-direction: column
 
-  background-color: variables.$body-bgc
   color: variables.$main-color
 
 main
   flex: 1 1 auto
 
-  margin: 0 2px 2px 2px
+  border-bottom: 2px solid variables.$body-bgc
+  border-right: 2px solid variables.$body-bgc
+  border-left: 2px solid variables.$body-bgc
+
   background-color: variables.$main-bgc
