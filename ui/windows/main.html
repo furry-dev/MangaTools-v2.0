@@ -23,15 +23,15 @@
     <div class="buttons">
         <i class="button show-more-windows fa-solid fa-ellipsis-vertical" id="show-more-windows"></i>
         <div class="more-windows" id="more-windows">
-            <div class="button">
+            <div class="button with-label">
                 <a class="name">Справка</a>
                 <i class="button fa-regular fa-circle-question"></i>
             </div>
-            <div class="button">
+            <div class="button with-label">
                 <a class="name">Команды</a>
                 <i class="button team-settings fa-solid fa-people-group"></i>
             </div>
-            <div class="button">
+            <div class="button with-label">
                 <a class="name">Настройки</a>
                 <i class="button fa-solid fa-gear"></i>
             </div>
@@ -162,32 +162,6 @@
 
     new WindowTabs(document.querySelector('header .tabs'), document.querySelector('main .pages'))
 </script>
-<script>
-    const soundSearch = document.querySelector('#sound-page .header .search')
-    const soundInput = soundSearch.querySelector('form input')
-
-    soundSearch.addEventListener('click', (e) => e.stopPropagation())
-
-    const disableSearch = (e) => {
-        e.preventDefault()
-        soundSearch.classList.remove('active')
-    }
-
-    soundSearch.querySelector('form').addEventListener('submit', (e) => {
-        disableSearch(e)
-    })
-
-    soundSearch.addEventListener('keydown', (e) => {
-        if (e.keyCode === 27) {
-            disableSearch(e)
-        }
-    })
-
-    soundInput.addEventListener('click', (e) => {
-        console.log(e)
-        soundSearch.classList.add('active')
-    })
-
-</script>
+<script src="/ui/scripts/windows/main.ts"></script>
 </body>
 </html>

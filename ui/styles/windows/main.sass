@@ -10,9 +10,9 @@
   100%
     scale: 1
 
-body
-  min-width: 400px
-  min-height: 455px
+//body
+//  min-width: 400px
+//  min-height: 455px
 
 main
   min-height: calc(100vh - #{variables.$window-header-height})
@@ -142,6 +142,8 @@ main
               opacity: 0
               visibility: hidden
               height: 0
+              font-weight: bold
+
               transition: opacity 1s ease, height 0s
 
             form
@@ -197,6 +199,11 @@ main
 
           .result-list
             background-color: rgba(100, 100, 100, 0.5)
+
+            transition: opacity 0.3s ease-out
+
+            &.search
+              opacity: 0
 
             .result
               padding: 10px 10px 10px 0
@@ -292,3 +299,16 @@ main
   .team-list, .user-list
     background-color: #313335
     height: 100%
+
+
+@media (max-width: 450px)
+  main
+    .pages
+      .page
+        &#sound-page
+          .header
+            .search
+              left: calc(110px + (#{variables.$window-header-height} - 2px))
+
+              &.active
+                left: calc(50% + ((#{variables.$window-header-height} - 2px) / 2))
