@@ -31,9 +31,17 @@
       },
       "fs": {
         "all": true,
-        "scope": ["**"]
+        "scope": [
+          "**"
+        ]
       },
       "path": {
+        "all": true
+      },
+      "dialog": {
+        "all": true
+      },
+      "process": {
         "all": true
       }
     },
@@ -86,6 +94,7 @@
         "height": 600,
         "maximized": true,
         "decorations": false,
+        "transparent": true,
         "url": "../ui/windows/main.html",
         "visible": false
       }
