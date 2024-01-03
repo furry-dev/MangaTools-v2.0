@@ -2,7 +2,7 @@
 name = "mangatools"
 version = "2.0.0"
 description = "A Tauri App"
-authors = ["you"]
+authors = ["Furry Dev"]
 license = ""
 repository = ""
 edition = "2021"
@@ -13,7 +13,7 @@ edition = "2021"
 tauri-build = { version = "1.5", features = [] }
 
 [dependencies]
-tauri = { version = "1.5", features = [ "path-all", "fs-all", "window-center", "window-unminimize", "window-show", "window-maximize", "window-minimize", "window-unmaximize", "window-start-dragging", "window-hide", "window-close", "shell-open"] }
+tauri = { version = "1.5", features = [ "process-all", "dialog-all", "path-all", "fs-all", "window-center", "window-unminimize", "window-show", "window-maximize", "window-minimize", "window-unmaximize", "window-start-dragging", "window-hide", "window-close", "shell-open"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 
