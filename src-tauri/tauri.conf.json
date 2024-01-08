@@ -22,8 +22,7 @@
         "minimize": true,
         "unmaximize": true,
         "unminimize": true,
-        "startDragging": true,
-        "center": true
+        "startDragging": true
       },
       "shell": {
         "all": false,
@@ -57,7 +56,8 @@
         "icons/icon.ico"
       ],
       "resources": [
-        "data/*"
+        "data/*",
+        ".config/*"
       ]
     },
     "security": {
@@ -65,13 +65,15 @@
     },
     "windows": [
       {
-        "label": "splashscreen",
+        "label": "splash",
         "fullscreen": false,
         "resizable": false,
         "title": "MangaTools is loading...",
         "width": 400,
         "height": 400,
         "decorations": false,
+        "alwaysOnTop": true,
+        "center": true,
         "url": "../ui/windows/splashscreen.html"
       },
       {
@@ -82,6 +84,7 @@
         "width": 520,
         "height": 600,
         "decorations": false,
+        "transparent": true,
         "url": "../ui/windows/welcome.html",
         "visible": false
       },

@@ -1,14 +1,6 @@
-use tauri::Window;
-
 pub mod main_window;
+pub mod splash_window;
+mod other;
 
-// the payload type must implement `Serialize` and `Clone`.
-#[derive(Clone, serde::Serialize)]
-struct Payload {
-    message: String,
-}
+pub use other::send_log;
 
-#[tauri::command]
-pub fn send_log(window: &Window, log: &str) {
-    window.emit("applogs", Payload { message: log.into() }).unwrap();
-}

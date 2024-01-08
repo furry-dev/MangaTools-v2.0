@@ -9,7 +9,7 @@ use tauri::{Manager, Window, };
 use serde_json::Value;
 
 use utils::json::open_json;
-use handlers::main_window::open_main_window;
+use handlers::{main_window::open_main_window, splash_window::close_splash_window};
 
 async fn initialize_functionality(
     splashscreen_window: Window,
@@ -19,13 +19,14 @@ async fn initialize_functionality(
     handlers::send_log(&splashscreen_window, "Start initializing...");
     handlers::send_log(&splashscreen_window, "Read program data...");
 
-    let welcome_data: Value = open_json(config::VERSION_DATA_PATH, Some(&splashscreen_window));
+    // Конфигурационный файл
+    let conf: Value = open_json(config::CONFIG_FILE_PATH, Some(&splashscreen_window));
 
     // Инициализация функционала
 
-    splashscreen_window.close().unwrap();
+    handlers::send_log(&splashscreen_window, "Loading UI...");
 
-    if welcome_data["showWelcome"] == true {
+    if conf["showWelcome"] == true {
         welcome_window.show().unwrap();
     } else {
         main_window.show().unwrap();
@@ -33,12 +34,14 @@ async fn initialize_functionality(
 }
 
 fn main() {
+    let context = tauri::generate_context!();
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
-            open_main_window
+            open_main_window,
+            close_splash_window
         ])
         .setup(|app| {
-            let splashscreen_window = app.get_window("splashscreen").unwrap();
+            let splashscreen_window = app.get_window("splash").unwrap();
             let main_window = app.get_window("main").unwrap();
             let welcome_window = app.get_window("welcome").unwrap();
 
@@ -50,6 +53,6 @@ fn main() {
 
             Ok(())
         })
-        .run(tauri::generate_context!())
+        .run(context)
         .expect("error while running tauri application");
 }
