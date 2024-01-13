@@ -1,3 +1,4 @@
 {
-  "showWelcome": true
+  "showWelcome": false,
+  "updateDbOnStart": true
 }

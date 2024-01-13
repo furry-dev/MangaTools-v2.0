@@ -4,6 +4,7 @@
 mod utils;
 mod handlers;
 mod config;
+mod db;
 
 use tauri::{Manager, Window, };
 use serde_json::Value;
@@ -23,6 +24,13 @@ async fn initialize_functionality(
     let conf: Value = open_json(config::CONFIG_FILE_PATH, Some(&splashscreen_window));
 
     // Инициализация функционала
+    handlers::send_log(&splashscreen_window, "Initialise database...");
+    db::init();
+
+
+    if conf["updateDbOnStart"] == true {
+        // Логика обновления БД
+    }
 
     handlers::send_log(&splashscreen_window, "Loading UI...");
 
