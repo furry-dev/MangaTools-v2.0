@@ -38,3 +38,22 @@ soundInput?.addEventListener('click', () => {
     soundSearch?.classList.add('active')
     soundResults?.classList.add("search")
 })
+
+
+const soundSearchResults = document.querySelector("#soundSearchResults")
+
+soundSearchResults?.addEventListener('click', (e) => {
+    const target = e.target
+    if (!(target instanceof Element)) return false
+
+    const text = target.closest(".trans")?.textContent
+    if (!text) return false
+
+    copyText(text).then(result => {
+        if (result) {
+            console.log("Done!")
+        } else {
+            console.error("Error copy text!")
+        }
+    })
+})
